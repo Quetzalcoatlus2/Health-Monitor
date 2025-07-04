@@ -11,3 +11,4 @@ The project follows an object-oriented architecture, using encapsulation and eve
 In addition to the simulation and local monitoring interface, the system includes a TCP/IP communication model designed for client-server interaction. This model allows the patient-side application to send sensor values in real time over a network to a remote doctor's interface. This setup emulates a remote medical telemetry system, where doctors can monitor a patient’s vital signs from another location.
 
 The project includes deployment functionality via a setup application, which packages the executable, handles dependencies like the .NET Framework, and allows users to install the system on Windows machines with ease.
+![fd7f561c-b474-4730-ae78-d6d00dcc2135](https://github.com/user-attachments/assets/ff53f7d5-7e70-4a94-a3db-6bc2d3dd8446)
