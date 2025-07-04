@@ -1,0 +1,49 @@
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.csproj.AssemblyReference.cache
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.AssemblyInfoInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.AssemblyInfo.cs
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.sourcelink.json
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\HealthMonitor.deps.json
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\HealthMonitor.runtimeconfig.json
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\HealthMonitor.exe
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\DataStore.deps.json
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\DataStore.runtimeconfig.json
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\DataStore.dll
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\DataStore.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.csproj.Up2Date
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.dll
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\refint\DataStore.dll
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\DataStore.genruntimeconfig.cache
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\obj\Debug\net9.0\ref\DataStore.dll
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\ConnStringSQLite.db
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\DataStore.dll.config
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\source\repos\ECG\POO\DataStore\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\HealthMonitor.deps.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\HealthMonitor.runtimeconfig.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\HealthMonitor.exe
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\ConnStringSQLite.db
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\DataStore.dll.config
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\DataStore.deps.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\DataStore.runtimeconfig.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\DataStore.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\DataStore.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\bin\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.csproj.AssemblyReference.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.AssemblyInfoInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.AssemblyInfo.cs
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.csproj.Up2Date
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\refint\DataStore.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\DataStore.genruntimeconfig.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\DataStore\obj\Debug\net9.0\ref\DataStore.dll

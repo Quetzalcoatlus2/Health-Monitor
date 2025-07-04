@@ -1,0 +1,37 @@
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.exe
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.deps.json
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.runtimeconfig.json
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.AssemblyInfoInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.AssemblyInfo.cs
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.sourcelink.json
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\refint\HealthMonitor.dll
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.genruntimeconfig.cache
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\ref\HealthMonitor.dll
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.csproj.AssemblyReference.cache
+C:\Users\Quetzal\source\repos\ECG\POO\HealthMonitor\obj\Debug\net9.0\HealthMo.2D79E537.Up2Date
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.exe
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.deps.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.runtimeconfig.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\bin\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.csproj.AssemblyReference.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.AssemblyInfoInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.AssemblyInfo.cs
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMo.2D79E537.Up2Date
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\refint\HealthMonitor.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\HealthMonitor.genruntimeconfig.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\HealthMonitor\obj\Debug\net9.0\ref\HealthMonitor.dll
