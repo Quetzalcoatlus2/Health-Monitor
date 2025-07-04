@@ -1,0 +1,23 @@
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.AssemblyInfoInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.AssemblyInfo.cs
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.sourcelink.json
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\bin\Debug\net9.0\CommonReferences.deps.json
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\refint\CommonReferences.dll
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\CommonReferences\obj\Debug\net9.0\ref\CommonReferences.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\bin\Debug\net9.0\CommonReferences.deps.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.AssemblyInfoInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.AssemblyInfo.cs
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\refint\CommonReferences.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\CommonReferences\obj\Debug\net9.0\ref\CommonReferences.dll
