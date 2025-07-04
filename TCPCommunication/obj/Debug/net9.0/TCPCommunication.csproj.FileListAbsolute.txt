@@ -1,0 +1,41 @@
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.deps.json
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.runtimeconfig.json
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.exe
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\TCPCommunication.deps.json
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\TCPCommunication.dll
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\TCPCommunication.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.csproj.AssemblyReference.cache
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.AssemblyInfoInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.AssemblyInfo.cs
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.sourcelink.json
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommu.0D257BE7.Up2Date
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.dll
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\refint\TCPCommunication.dll
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.pdb
+C:\Users\Quetzal\source\repos\ECG\POO\TCPCommunication\obj\Debug\net9.0\ref\TCPCommunication.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.deps.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.runtimeconfig.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.exe
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\TCPCommunication.deps.json
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\TCPCommunication.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\TCPCommunication.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\CommonReferences.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\CommonReferences.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\bin\Debug\net9.0\HealthMonitor.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.csproj.AssemblyReference.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.AssemblyInfoInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.AssemblyInfo.cs
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.csproj.CoreCompileInputs.cache
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommu.0D257BE7.Up2Date
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\refint\TCPCommunication.dll
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\TCPCommunication.pdb
+C:\Users\Quetzal\OneDrive - Gheorghe Asachi Technical University of Iasi\Desktop\POO\TCPCommunication\obj\Debug\net9.0\ref\TCPCommunication.dll
