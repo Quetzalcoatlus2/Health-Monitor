@@ -80,7 +80,7 @@ public class SensorValue
         this.patientCode = string.Empty; // Initializes patient code with an empty string
         this.type = type; // Sets sensor type
         this.value = value; // Sets sensor value
-        this.TimeStampString = timeStampString; // Sets timestamp folosind proprietatea TimeStampString
+        this.TimeStampString = timeStampString; // Sets timestamp using the TimeStampString property
     }
 
     // Constructor initializing all fields

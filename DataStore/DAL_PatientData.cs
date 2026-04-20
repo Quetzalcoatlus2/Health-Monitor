@@ -62,7 +62,7 @@ namespace DataStore
                 "where patient_code = :patient_code and timestamp >= :minTime and timestamp < :maxTime"; // SQL command for selecting data
 
             // Adds required parameters for SQL command
-            cmd.Parameters.Add(":patient_code", DbType.String).Value = patCode.ToString(); // Patient code (convertit la string)
+            cmd.Parameters.Add(":patient_code", DbType.String).Value = patCode.ToString(); // Patient code (converted to string)
             cmd.Parameters.Add(":minTime", DbType.DateTime).Value = currDay.Date; // Minimum time (start of day)
             cmd.Parameters.Add(":maxTime", DbType.DateTime).Value = currDay.Date.AddDays(1); // Maximum time (end of day)
 

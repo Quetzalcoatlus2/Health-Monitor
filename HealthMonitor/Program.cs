@@ -11,8 +11,8 @@ class Program
 
         // Instantiate using the default constructor. Measurement values are set through properties
         SensorValue sensor1 = new SensorValue(); // Creates a SensorValue object
-        sensor1.Type = SensorType.BloodGlucose; // Sets sensor type la "BloodGlucose"
-        sensor1.TimeStamp = DateTime.Now; // Sets timestamp la momentul curent
+        sensor1.Type = SensorType.BloodGlucose; // Sets sensor type to "BloodGlucose"
+        sensor1.TimeStamp = DateTime.Now; // Sets timestamp to the current moment
         sensor1.Value = 100; // Sets measured value to 100 mg/dl
         DisplaySensorValues("First sensor initialized ", sensor1); // Displays sensor values
 
@@ -29,7 +29,7 @@ class Program
         Console.WriteLine("Pump stopped."); // Displays a message that the pump was stopped
     }
 
-    // Method to display a sensor values
+    // Method to display sensor values
     internal static void DisplaySensorValues(string headerText, SensorValue sensor)
     {
         Console.WriteLine("\t " + headerText); // Displays a header text
