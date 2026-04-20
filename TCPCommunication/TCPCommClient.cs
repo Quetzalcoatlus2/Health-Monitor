@@ -5,165 +5,165 @@ using System.Threading;
 
 namespace TCPCommunication
 {
-    public class TCPCommClient : IDisposable // Clasa pentru clientul TCP, implementează IDisposable pentru gestionarea resurselor
+    public class TCPCommClient : IDisposable // TCP client class, implements IDisposable for resource management
     {
-        private string _serverIP = String.Empty; // Adresa IP a serverului, inițializată cu un șir gol
-        protected bool _running = false; // Indică dacă clientul este în execuție
-        protected int _port = 50000; // Portul utilizat pentru conexiunea TCP
-        protected List<Thread> myThreadList = new List<Thread>(); // Listă pentru gestionarea firelor de execuție
+        private string _serverIP = String.Empty; // Server IP address, initialized with empty string
+        protected bool _running = false; // Indicates whether client is running
+        protected int _port = 50000; // Port used for TCP connection
+        protected List<Thread> myThreadList = new List<Thread>(); // List for managing threads
 
-        // Metodă pentru eliberarea resurselor utilizate de client
+        // Method for releasing client resources
         public void Dispose()
         {
             try
             {
-                foreach (Thread thread in myThreadList) // Parcurge lista de fire de execuție
+                foreach (Thread thread in myThreadList) // Iterates through thread list
                 {
-                    if (thread.IsAlive) // Verifică dacă firul este activ
+                    if (thread.IsAlive) // Checks whether thread is alive
                     {
-                        thread.Join(); // Așteaptă finalizarea firului
+                        thread.Join(); // Waits for thread completion
                     }
                 }
-                myThreadList.Clear(); // Golește lista de fire
+                myThreadList.Clear(); // Clears thread list
             }
             catch (Exception ex)
             {
-                throw new Exception("TCP client error on disposing the threads ->" + ex.Message); // Aruncă o excepție în caz de eroare
+                throw new Exception("TCP client error on disposing the threads ->" + ex.Message); // Throws exception on error
             }
         }
 
-        // Metodă pentru trimiterea datelor de semnal către server
+        // Method for sending signal data to server
         public void SendSignalData(string patientCode, string key, DateTime timeStamp, double signalValue)
         {
             try
             {
-                // Construiește un șir de caractere care conține datele semnalului
+                // Builds string containing signal data
                 string signalValuePackedIntoString = BuildPacketStringSignalValue(patientCode, key, timeStamp, signalValue);
-                this.SendSignalText(signalValuePackedIntoString); // Trimite șirul de caractere către server
+                this.SendSignalText(signalValuePackedIntoString); // Sends string to server
             }
             catch (Exception ex)
             {
-                throw new Exception("TCP client error on sending signalValue to the server system ->" + ex.Message); // Aruncă o excepție în caz de eroare
+                throw new Exception("TCP client error on sending signalValue to the server system ->" + ex.Message); // Throws exception on error
             }
         }
 
-        // Metodă pentru construirea unui pachet de date sub formă de șir de caractere
+        // Method for building a packet string
         private string BuildPacketStringSignalValue(string patientCode, string key, DateTime timeStamp, double signalValue)
         {
-            StringBuilder builder = new StringBuilder(); // Creează un StringBuilder pentru construirea șirului
+            StringBuilder builder = new StringBuilder(); // Creates StringBuilder for string construction
 
-            builder.Append("#"); // Adaugă un delimitator de început
-            builder.Append(key); // Adaugă cheia
-            builder.Append("," + timeStamp.ToString("o")); // Adaugă timestamp-ul în format ISO 8601
-            builder.Append("," + patientCode); // Adaugă codul pacientului
-            builder.Append("," + signalValue.ToString("0.00", CultureInfo.InvariantCulture)); // Adaugă valoarea semnalului formatată cu 2 zecimale
-            builder.Append("#"); // Adaugă un delimitator de sfârșit
+            builder.Append("#"); // Adds start delimiter
+            builder.Append(key); // Adds key
+            builder.Append("," + timeStamp.ToString("o")); // Adds timestamp in ISO 8601 format
+            builder.Append("," + patientCode); // Adds patient code
+            builder.Append("," + signalValue.ToString("0.00", CultureInfo.InvariantCulture)); // Adds signal value formatted to 2 decimals
+            builder.Append("#"); // Adds end delimiter
 
-            return builder.ToString(); // Returnează șirul construit
+            return builder.ToString(); // Returns built string
         }
 
-        // Metodă pentru trimiterea unui text de semnal către server
+        // Method for sending signal text to server
         private void SendSignalText(String signalText)
         {
             try
             {
-                RemoveClosedThreadsFromList(); // Curăță lista de fire închise
-                Thread newThread = new Thread(new ParameterizedThreadStart(SendSignalTextNewThread)); // Creează un nou fir de execuție
-                myThreadList.Add(newThread); // Adaugă firul în listă
-                newThread.Start(signalText); // Pornește firul cu textul de semnal ca parametru
+                RemoveClosedThreadsFromList(); // Cleans closed thread list
+                Thread newThread = new Thread(new ParameterizedThreadStart(SendSignalTextNewThread)); // Creates a new thread
+                myThreadList.Add(newThread); // Adds thread to list
+                newThread.Start(signalText); // Starts thread cu textul de semnal ca parametru
             }
             catch (Exception ex)
             {
-                throw new Exception("TCP client error on sending signalValue to the server system ->" + ex.Message); // Aruncă o excepție în caz de eroare
+                throw new Exception("TCP client error on sending signalValue to the server system ->" + ex.Message); // Throws exception on error
             }
         }
 
-        // Metodă pentru eliminarea firelor închise din listă
+        // Method for removing closed threads from list
         private void RemoveClosedThreadsFromList()
         {
             try
             {
-                List<Thread> myAliveThreadList = new List<Thread>(); // Creează o listă temporară pentru firele active
-                foreach (Thread thread in myThreadList) // Parcurge lista de fire
+                List<Thread> myAliveThreadList = new List<Thread>(); // Creates temporary list for active threads
+                foreach (Thread thread in myThreadList) // Iterates through thread list
                 {
-                    if (thread.IsAlive) // Verifică dacă firul este activ
+                    if (thread.IsAlive) // Checks whether thread is alive
                     {
-                        myAliveThreadList.Add(thread); // Adaugă firul activ în lista temporară
+                        myAliveThreadList.Add(thread); // Adds active thread to temporary list
                     }
                 }
-                myThreadList = myAliveThreadList; // Actualizează lista originală cu firele active
+                myThreadList = myAliveThreadList; // Updates original list with active threads
             }
             catch (Exception ex)
             {
-                throw new Exception("TCP client error when trying to close the unused threads ->" + ex.Message); // Aruncă o excepție în caz de eroare
+                throw new Exception("TCP client error when trying to close the unused threads ->" + ex.Message); // Throws exception on error
             }
         }
 
-        // Metodă pentru trimiterea textului de semnal pe un fir separat
+        // Method for sending signal text on separate thread
         private void SendSignalTextNewThread(object? signalTextObject)
         {
-            string? signalText = signalTextObject as string; // Convertirea obiectului la șir de caractere
-            if (signalText == null) return; // Dacă textul este null, se oprește execuția
+            string? signalText = signalTextObject as string; // Converts object to string
+            if (signalText == null) return; // If text is null, exits execution
 
-            if (!IsServerReachable(_serverIP)) // Verifică dacă serverul este accesibil
+            if (!IsServerReachable(_serverIP)) // Checks if server is reachable
             {
-                Console.WriteLine($"Server {_serverIP} is not reachable."); // Afișează un mesaj de eroare
-                throw new Exception($"Server {_serverIP} is not reachable."); // Aruncă o excepție
+                Console.WriteLine($"Server {_serverIP} is not reachable."); // Displays an error message
+                throw new Exception($"Server {_serverIP} is not reachable."); // Throws an exception
             }
 
-            int retryCount = 3; // Numărul maxim de încercări
-            int delay = 2000; // Întârziere între încercări (2 secunde)
+            int retryCount = 3; // Maximum number of retries
+            int delay = 2000; // Delay between retries (2 seconds)
 
-            for (int attempt = 1; attempt <= retryCount; attempt++) // Buclă pentru încercări multiple
+            for (int attempt = 1; attempt <= retryCount; attempt++) // Loop for multiple attempts
             {
                 try
                 {
-                    using TcpClient myTCPClient = new TcpClient(_serverIP, _port); // Creează un client TCP
-                    NetworkStream stream = myTCPClient.GetStream(); // Obține fluxul de date al clientului
-                    byte[] buffer = Encoding.ASCII.GetBytes(signalText); // Codifică textul în format ASCII
-                    stream.Write(buffer, 0, buffer.Length); // Trimite datele pe flux
-                    Console.WriteLine($"Data sent successfully: {signalText}"); // Afișează un mesaj de succes
-                    return; // Iese din metodă la succes
+                    using TcpClient myTCPClient = new TcpClient(_serverIP, _port); // Creates a TCP client
+                    NetworkStream stream = myTCPClient.GetStream(); // Gets client data stream
+                    byte[] buffer = Encoding.ASCII.GetBytes(signalText); // Encodes text in ASCII format
+                    stream.Write(buffer, 0, buffer.Length); // Sends data through stream
+                    Console.WriteLine($"Data sent successfully: {signalText}"); // Displays success message
+                    return; // Exits method on success
                 }
                 catch (SocketException ex)
                 {
-                    Console.WriteLine($"Attempt {attempt} failed: {ex.Message}"); // Afișează un mesaj de eroare
-                    if (attempt == retryCount) // Dacă este ultima încercare
+                    Console.WriteLine($"Attempt {attempt} failed: {ex.Message}"); // Displays an error message
+                    if (attempt == retryCount) // If this is the last attempt
                     {
-                        throw new Exception("Failed to send data after multiple attempts.", ex); // Aruncă o excepție
+                        throw new Exception("Failed to send data after multiple attempts.", ex); // Throws an exception
                     }
-                    Thread.Sleep(delay); // Așteaptă înainte de a încerca din nou
+                    Thread.Sleep(delay); // Waits before retrying
                 }
             }
         }
 
-        // Metodă pentru verificarea accesibilității serverului
+        // Method for checking server reachability
         private bool IsServerReachable(string serverIP)
         {
             try
             {
-                using var ping = new System.Net.NetworkInformation.Ping(); // Creează un obiect Ping
-                var reply = ping.Send(serverIP); // Trimite un ping către server
-                return reply.Status == System.Net.NetworkInformation.IPStatus.Success; // Returnează true dacă serverul răspunde
+                using var ping = new System.Net.NetworkInformation.Ping(); // Creates a Ping object
+                var reply = ping.Send(serverIP); // Sends a ping to server
+                return reply.Status == System.Net.NetworkInformation.IPStatus.Success; // Returns true if server responds
             }
             catch
             {
-                return false; // Returnează false în caz de eroare
+                return false; // Returns false on error
             }
         }
 
         #region Constructors
 
-        // Constructor implicit privat
+        // Private default constructor
         public TCPCommClient()
         {
 
         }
 
-        // Constructor care inițializează adresa IP a serverului
+        // Constructor initializing server IP address
         public TCPCommClient(string serverIP)
         {
-            _serverIP = "192.168.0.105"; // Setează adresa IP a serverului
+            _serverIP = "192.168.0.105"; // Sets server IP address
         }
 
         #endregion
