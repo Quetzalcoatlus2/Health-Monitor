@@ -154,7 +154,7 @@ namespace TCPCommunication
 
         #region Constructors
 
-        // Private default constructor
+        // Public default constructor
         public TCPCommClient()
         {
 
@@ -163,7 +163,7 @@ namespace TCPCommunication
         // Constructor initializing server IP address
         public TCPCommClient(string serverIP)
         {
-            _serverIP = "192.168.0.105"; // Sets server IP address
+            _serverIP = serverIP; // Sets server IP address
         }
 
         #endregion

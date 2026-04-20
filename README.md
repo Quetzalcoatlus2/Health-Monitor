@@ -32,7 +32,7 @@ Health Monitor is a C#/.NET solution that simulates remote patient monitoring. I
 From the repository root:
 
 ```bash
-dotnet build /home/runner/work/Health-Monitor/Health-Monitor/HealthMonitor/HealthMonitor.sln
+dotnet build HealthMonitor/HealthMonitor.sln
 ```
 
 > Note: Building the full solution on Linux/macOS will fail for the Windows Forms project unless Windows targeting is explicitly enabled.
@@ -42,15 +42,15 @@ dotnet build /home/runner/work/Health-Monitor/Health-Monitor/HealthMonitor/Healt
 Run the Windows Forms application project:
 
 ```bash
-dotnet run --project /home/runner/work/Health-Monitor/Health-Monitor/DataPresentation/DataPresentation.csproj
+dotnet run --project DataPresentation/DataPresentation.csproj
 ```
 
 ## Database Configuration
 
 SQLite connection strings are currently hardcoded in:
 
-- `/home/runner/work/Health-Monitor/Health-Monitor/DataPresentation/App.config`
-- `/home/runner/work/Health-Monitor/Health-Monitor/DataStore/App.config`
+- `DataPresentation/App.config`
+- `DataStore/App.config`
 
 Before running on a new machine, update the `Data Source=...` path to a valid local path.
 
