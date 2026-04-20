@@ -356,7 +356,7 @@
                                                 // 
                                                 // Main configuration of the DataPresentation form
                                                 // 
-            BackColor = SystemColors.ActiveCaption; // Sets background color a formularului
+            BackColor = SystemColors.ActiveCaption; // Sets form background color
             ClientSize = new Size(868, 618); // Sets form size
             Controls.Add(groupBox1); // Adds GroupBox for communication channel
             Controls.Add(groupBoxData); // Adds GroupBox for the data section
