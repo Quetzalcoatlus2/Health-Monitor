@@ -70,7 +70,7 @@ namespace TCPCommunication
                 RemoveClosedThreadsFromList(); // Cleans closed thread list
                 Thread newThread = new Thread(new ParameterizedThreadStart(SendSignalTextNewThread)); // Creates a new thread
                 myThreadList.Add(newThread); // Adds thread to list
-                newThread.Start(signalText); // Starts thread cu textul de semnal ca parametru
+                newThread.Start(signalText); // Starts thread with signal text as parameter
             }
             catch (Exception ex)
             {

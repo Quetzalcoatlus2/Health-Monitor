@@ -70,7 +70,7 @@ namespace TCPCommunication
 
                     Thread newThread = new Thread(new ParameterizedThreadStart(ClientThread)); // Creates a new client thread
                     ServerThreadList.Add(newThread); // Adds thread to thread list
-                    newThread.Start(tempClient); // Starts thread cu clientul ca parametru
+                    newThread.Start(tempClient); // Starts thread with client as parameter
                 }
 
                 Thread.Sleep(100); // Waits 100ms to prevent excessive CPU usage
