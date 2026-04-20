@@ -2,115 +2,115 @@
 using System.Timers; // For Timer, ElapsedEventArgs
 using CommonReferences; // Ensure this is present
 
-// Definirea unui delegat pentru evenimentul de generare a unei valori noi de senzor
+// Delegate definition for new sensor value generation event
 public delegate void OnNewSensorValue(SensorBase sensorBaseArg);
-// Clasa pentru generarea valorilor senzorilor
+// Class for generating sensor values
 public class PumpSensorValues
 {
-    // Eveniment care se declanșează la generarea unei valori noi de senzor
+    // Event triggered when a new sensor value is generated
     public event OnNewSensorValue? newSensorValueEvent;
 
-    System.Timers.Timer timerBase; // Timer pentru generarea periodică a valorilor
-    Random myRandom; // Generator de numere aleatoare
-    string patientCode = "DefaultPatientCode"; // Codul pacientului (valoare implicită)
+    System.Timers.Timer timerBase; // Timer for periodic value generation
+    Random myRandom; // Random number generator
+    string patientCode = "DefaultPatientCode"; // Patient code (default value)
 
-    // Constructor care inițializează timer-ul și generatorul de numere aleatoare
+    // Constructor initializing timer and random generator
     public PumpSensorValues(int periodSecondsBetweenValues)
     {
-        myRandom = new Random(); // Inițializează generatorul de numere aleatoare
-        patientCode = string.Empty; // Inițializează codul pacientului cu un șir gol
-        timerBase = new System.Timers.Timer(); // Creează un nou timer
-        timerBase.Interval = periodSecondsBetweenValues * 1000; // Setează intervalul timer-ului în milisecunde
-        timerBase.Elapsed += new ElapsedEventHandler(timerBase_Elapsed); // Asociază metoda care se execută la fiecare tick al timer-ului
+        myRandom = new Random(); // Initializes random number generator
+        patientCode = string.Empty; // Initializes patient code with an empty string
+        timerBase = new System.Timers.Timer(); // Creates a new timer
+        timerBase.Interval = periodSecondsBetweenValues * 1000; // Sets timer interval in milliseconds
+        timerBase.Elapsed += new ElapsedEventHandler(timerBase_Elapsed); // Binds handler executed at each timer tick
     }
 
-    // Metodă pentru pornirea generării valorilor senzorilor
+    // Method to start sensor value generation
     public void StartPumping()
     {
-        Console.WriteLine("Starting sensor value generation..."); // Afișează un mesaj de pornire
-        timerBase.Start(); // Pornește timer-ul
+        Console.WriteLine("Starting sensor value generation..."); // Displays start message
+        timerBase.Start(); // Starts timer
     }
 
-    // Metodă pentru oprirea generării valorilor senzorilor
+    // Method to stop sensor value generation
     public void StopPumping()
     {
-        Console.WriteLine("Stopping sensor value generation..."); // Afișează un mesaj de oprire
-        timerBase.Stop(); // Oprește timer-ul
+        Console.WriteLine("Stopping sensor value generation..."); // Displays stop message
+        timerBase.Stop(); // Stops timer
     }
 
-    // Metodă care se execută la fiecare tick al timer-ului
+    // Method executed on each timer tick
     private void timerBase_Elapsed(object? sender, ElapsedEventArgs e)
     {
-        int minNumber, maxNumber; // Variabile pentru limitele valorilor generate
-        double valueRandom; // Variabilă pentru valoarea generată aleatoriu
+        int minNumber, maxNumber; // Variables for generated value bounds
+        double valueRandom; // Variable for random generated value
 
-        // Obține toate valorile definite în enum-ul SensorType
+        // Gets all values defined in SensorType enum
         SensorType[] sensorTypeValues = (SensorType[])Enum.GetValues(typeof(SensorType));
-        int maxSensorIndex = sensorTypeValues.Length - 1; // Obține numărul maxim de tipuri de senzori
+        int maxSensorIndex = sensorTypeValues.Length - 1; // Gets maximum number of sensor types
 
-        // Generează un index aleatoriu pentru un tip de senzor (excluzând None)
-        int typeRandomIndex = myRandom.Next(1, maxSensorIndex + 1); // Index între 1 și numărul maxim de tipuri
-        SensorType sensorTypeRandom = sensorTypeValues[typeRandomIndex]; // Selectează tipul de senzor corespunzător indexului
+        // Generates random index for a sensor type (excluding None)
+        int typeRandomIndex = myRandom.Next(1, maxSensorIndex + 1); // Index between 1 and the max number of types
+        SensorType sensorTypeRandom = sensorTypeValues[typeRandomIndex]; // Selects sensor type corresponding to the index
 
-        // Generează o valoare aleatorie pentru tipul de senzor selectat
+        // Generates a random value for the selected sensor type
         switch (sensorTypeRandom)
         {
-            case SensorType.SkinTemperature: // Dacă tipul este SkinTemperature
-                minNumber = 30; // Limita minimă
-                maxNumber = 40; // Limita maximă
-                valueRandom = myRandom.Next(minNumber * 10, maxNumber * 10 + 1) / 10.0; // Valoare cu o zecimală
+            case SensorType.SkinTemperature: // If type is SkinTemperature
+                minNumber = 30; // Minimum limit
+                maxNumber = 40; // Maximum limit
+                valueRandom = myRandom.Next(minNumber * 10, maxNumber * 10 + 1) / 10.0; // Value with one decimal
                 break;
-            case SensorType.BloodGlucose: // Dacă tipul este BloodGlucose
-                minNumber = 60; // Limita minimă
-                maxNumber = 300; // Limita maximă
-                valueRandom = myRandom.Next(minNumber, maxNumber + 1); // Valoare între limite
+            case SensorType.BloodGlucose: // If type is BloodGlucose
+                minNumber = 60; // Minimum limit
+                maxNumber = 300; // Maximum limit
+                valueRandom = myRandom.Next(minNumber, maxNumber + 1); // Value within limits
                 break;
-            case SensorType.HeartRate: // Dacă tipul este HeartRate
-                minNumber = 30; // Limita minimă
-                maxNumber = 200; // Limita maximă
-                valueRandom = myRandom.Next(minNumber, maxNumber + 1); // Valoare între limite
+            case SensorType.HeartRate: // If type is HeartRate
+                minNumber = 30; // Minimum limit
+                maxNumber = 200; // Maximum limit
+                valueRandom = myRandom.Next(minNumber, maxNumber + 1); // Value within limits
                 break;
-            default: // Dacă tipul este necunoscut sau None
-                valueRandom = 0; // Valoare implicită
-                Console.WriteLine($"Warning: Generated default value for unexpected SensorType: {sensorTypeRandom}"); // Afișează un avertisment
+            default: // If type is unknown or None
+                valueRandom = 0; // Default value
+                Console.WriteLine($"Warning: Generated default value for unexpected SensorType: {sensorTypeRandom}"); // Displays warning
                 break;
         }
 
-        // Creează un obiect SensorBase cu valorile generate
+        // Creates a SensorBase object with generated values
         SensorBase sensorRandom = new SensorBase(patientCode, sensorTypeRandom, valueRandom, DateTime.Now);
 
-        // Declanșează evenimentul dacă există abonați
+        // Triggers event if there are subscribers
         if (newSensorValueEvent != null)
         {
-            newSensorValueEvent(sensorRandom); // Invocă evenimentul
+            newSensorValueEvent(sensorRandom); // Invokes event
         }
     }
 
-    // Constructor care acceptă și codul pacientului
+    // Constructor also accepting patient code
     public PumpSensorValues(int periodSecondsBetweenValues, string patientCode)
     {
-        this.patientCode = patientCode; // Inițializează codul pacientului
-        myRandom = new Random(); // Inițializează generatorul de numere aleatoare
-        timerBase = new System.Timers.Timer(); // Creează un nou timer
-        timerBase.Interval = periodSecondsBetweenValues * 1000; // Setează intervalul timer-ului în milisecunde
-        timerBase.Elapsed += new ElapsedEventHandler(timerBase_Elapsed); // Asociază metoda care se execută la fiecare tick al timer-ului
+        this.patientCode = patientCode; // Initializes patient code
+        myRandom = new Random(); // Initializes random number generator
+        timerBase = new System.Timers.Timer(); // Creates a new timer
+        timerBase.Interval = periodSecondsBetweenValues * 1000; // Sets timer interval in milliseconds
+        timerBase.Elapsed += new ElapsedEventHandler(timerBase_Elapsed); // Binds handler executed at each timer tick
     }
 }
-// Clasa pentru reprezentarea unei valori de senzor
+// Class for representing a sensor value
 public class SensorBase
 {
-    public string PatientCode { get; } // Codul pacientului
-    public SensorType SensorType { get; } // Tipul senzorului
-    public double Value { get; } // Valoarea măsurată
-    public DateTime Timestamp { get; } // Timpul măsurării
+    public string PatientCode { get; } // Patient code
+    public SensorType SensorType { get; } // Sensor type
+    public double Value { get; } // Measured value
+    public DateTime Timestamp { get; } // Measurement time
 
-    // Constructor care inițializează toate proprietățile
+    // Constructor initializing all properties
     public SensorBase(string patientCode, SensorType sensorType, double value, DateTime timestamp)
     {
-        PatientCode = patientCode; // Setează codul pacientului
-        SensorType = sensorType; // Setează tipul senzorului
-        Value = value; // Setează valoarea măsurată
-        Timestamp = timestamp; // Setează timpul măsurării
+        PatientCode = patientCode; // Sets patient code
+        SensorType = sensorType; // Sets sensor type
+        Value = value; // Sets measured value
+        Timestamp = timestamp; // Sets measurement time
     }
 }
 

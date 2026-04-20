@@ -6,219 +6,219 @@ using System.Threading.Tasks;
 namespace TCPCommunication
 {
     using CommonReferences;
-    // Delegat pentru evenimentul de primire a unui semnal nou
+    // Delegate for new signal received event
     public delegate void NewSignalReceived(SensorBase sensorValue);
-    // Clasa pentru serverul TCP
+    // TCP server class
     public class TCPCommServer : IDisposable
     {
-        private int _port = 50000; // Portul de comunicare pentru serverul TCP/IP
-        private string _thisServerIP = "192.168.196.105"; // Adresa IP a acestui server
+        private int _port = 50000; // Communication port for TCP/IP server
+        private string _thisServerIP = "192.168.196.105"; // This server IP address
 
-        protected TcpListener server = null!; // Obiect pentru ascultarea conexiunilor TCP
-        protected List<Thread> ServerThreadList = new List<Thread>(); // Listă pentru gestionarea firelor de execuție ale serverului
+        protected TcpListener server = null!; // Object for listening to TCP connections
+        protected List<Thread> ServerThreadList = new List<Thread>(); // List for managing server threads
 
-        private bool _isRunning = false; // Flag pentru a indica dacă serverul este în execuție
-        public event NewSignalReceived? newSignalReceivedEvent; // Eveniment pentru semnal nou primit
+        private bool _isRunning = false; // Flag indicating whether server is running
+        public event NewSignalReceived? newSignalReceivedEvent; // Event for newly received signal
 
-        // Metodă pentru eliberarea resurselor utilizate de server
+        // Method for releasing resources used by server
         public void Dispose()
         {
             try
             {
-                foreach (Thread thread in ServerThreadList) // Parcurge lista de fire de execuție
+                foreach (Thread thread in ServerThreadList) // Iterates through thread list
                 {
-                    if (thread.IsAlive) // Verifică dacă firul este activ
+                    if (thread.IsAlive) // Checks whether thread is alive
                     {
-                        thread.Join(); // Așteaptă finalizarea firului
+                        thread.Join(); // Waits for thread completion
                     }
                 }
-                ServerThreadList.Clear(); // Golește lista de fire
+                ServerThreadList.Clear(); // Clears thread list
             }
             catch (Exception ex)
             {
-                throw new Exception("TCP client error on disposing the threads ->" + ex.Message); // Aruncă o excepție în caz de eroare
+                throw new Exception("TCP client error on disposing the threads ->" + ex.Message); // Throws exception on error
             }
         }
 
-        // Metodă pentru pornirea serverului TCP
+        // Method for starting TCP server
         private void StartTCPServer()
         {
-            if (_isRunning) return; // Dacă serverul este deja pornit, ieșim din metodă
-            Thread newThread = new Thread(StartInNewThread); // Creează un nou fir de execuție pentru server
-            ServerThreadList.Add(newThread); // Adaugă firul în lista de fire
-            newThread.Start(); // Pornește firul
+            if (_isRunning) return; // If server is already started, exit method
+            Thread newThread = new Thread(StartInNewThread); // Creates a new server thread
+            ServerThreadList.Add(newThread); // Adds thread to thread list
+            newThread.Start(); // Starts thread
         }
 
-        // Metodă pentru pornirea serverului într-un fir nou
+        // Method for starting server in a new thread
         private void StartInNewThread()
         {
-            server = new TcpListener(IPAddress.Parse(_thisServerIP), _port); // Inițializează serverul cu adresa IP și portul specificat
-            server.Start(); // Pornește serverul
-            Console.WriteLine($"Server is running: {_isRunning}"); // Afișează starea serverului
-            Console.WriteLine($"Server started on {_thisServerIP}:{_port}"); // Afișează mesajul de pornire a serverului
+            server = new TcpListener(IPAddress.Parse(_thisServerIP), _port); // Initializes server with specific IP and port
+            server.Start(); // Starts server
+            Console.WriteLine($"Server is running: {_isRunning}"); // Displays server status
+            Console.WriteLine($"Server started on {_thisServerIP}:{_port}"); // Displays server start message
 
-            while (_isRunning) // Buclă principală a serverului
+            while (_isRunning) // Server main loop
             {
-                Console.WriteLine("Server is now listening..."); // Afișează mesajul de ascultare
-                if (server.Pending()) // Verifică dacă există conexiuni în așteptare
+                Console.WriteLine("Server is now listening..."); // Displays listening message
+                if (server.Pending()) // Checks for pending connections
                 {
-                    Console.WriteLine("Client connection detected."); // Afișează mesajul de detectare a unui client
-                    TcpClient tempClient = server.AcceptTcpClient(); // Acceptă conexiunea clientului
-                    Console.WriteLine($"Client connected from {tempClient.Client.RemoteEndPoint}"); // Afișează adresa clientului conectat
+                    Console.WriteLine("Client connection detected."); // Displays client detection message
+                    TcpClient tempClient = server.AcceptTcpClient(); // Accepts client connection
+                    Console.WriteLine($"Client connected from {tempClient.Client.RemoteEndPoint}"); // Displays connected client address
 
-                    RemoveClosedThreadsFromList(); // Curăță lista de fire închise
+                    RemoveClosedThreadsFromList(); // Cleans closed thread list
 
-                    Thread newThread = new Thread(new ParameterizedThreadStart(ClientThread)); // Creează un nou fir pentru client
-                    ServerThreadList.Add(newThread); // Adaugă firul în lista de fire
-                    newThread.Start(tempClient); // Pornește firul cu clientul ca parametru
+                    Thread newThread = new Thread(new ParameterizedThreadStart(ClientThread)); // Creates a new client thread
+                    ServerThreadList.Add(newThread); // Adds thread to thread list
+                    newThread.Start(tempClient); // Starts thread with client as parameter
                 }
 
-                Thread.Sleep(100); // Așteaptă 100 ms pentru a preveni utilizarea excesivă a procesorului
+                Thread.Sleep(100); // Waits 100ms to prevent excessive CPU usage
             }
 
-            server.Stop(); // Oprește serverul
+            server.Stop(); // Stops server
         }
 
-        // Metodă pentru eliminarea firelor închise din listă
+        // Method for removing closed threads from list
         private void RemoveClosedThreadsFromList()
         {
-            List<Thread> myAliveThreadList = new List<Thread>(); // Creează o listă temporară pentru firele active
-            foreach (Thread thread in ServerThreadList) // Parcurge lista de fire
+            List<Thread> myAliveThreadList = new List<Thread>(); // Creates temporary list for active threads
+            foreach (Thread thread in ServerThreadList) // Iterates through thread list
             {
-                if (thread.IsAlive) // Verifică dacă firul este activ
+                if (thread.IsAlive) // Checks whether thread is alive
                 {
-                    myAliveThreadList.Add(thread); // Adaugă firul activ în lista temporară
+                    myAliveThreadList.Add(thread); // Adds active thread to temporary list
                 }
             }
-            ServerThreadList = myAliveThreadList; // Actualizează lista originală cu firele active
+            ServerThreadList = myAliveThreadList; // Updates original list with active threads
         }
 
-        // Metodă pentru oprirea serverului TCP
+        // Method for stopping TCP server
         public void CloseTCPServer()
         {
-            if (server != null) // Verifică dacă serverul este inițializat
+            if (server != null) // Checks whether server is initialized
             {
-                server.Stop(); // Oprește serverul
+                server.Stop(); // Stops server
             }
-            foreach (Thread thread in ServerThreadList) // Parcurge lista de fire
+            foreach (Thread thread in ServerThreadList) // Iterates through thread list
             {
-                if (thread.IsAlive) // Verifică dacă firul este activ
+                if (thread.IsAlive) // Checks whether thread is alive
                 {
-                    thread.Join(); // Așteaptă finalizarea firului
+                    thread.Join(); // Waits for thread completion
                 }
             }
-            server = null!; // Resetează serverul la null
+            server = null!; // Resets server to null
         }
 
-        // Metodă pentru gestionarea unui client într-un fir separat
+        // Method for handling a client in a separate thread
         public void ClientThread(object? clientData)
         {
-            if (clientData is null) return; // Dacă datele clientului sunt null, ieșim din metodă
-            TcpClient client = (TcpClient)clientData; // Convertim datele la TcpClient
-            NetworkStream stream = client.GetStream(); // Obținem fluxul de date al clientului
-            stream.ReadTimeout = 60 * 1000; // Setăm timeout-ul pentru citire la 60 de secunde
+            if (clientData is null) return; // If client data is null, exit method
+            TcpClient client = (TcpClient)clientData; // Converts data to TcpClient
+            NetworkStream stream = client.GetStream(); // Gets the client network stream
+            stream.ReadTimeout = 60 * 1000; // Sets read timeout to 60 seconds
 
-            List<byte> signalValueInBytes = new List<byte>(); // Listă pentru stocarea datelor primite
-            int bufData = 0; // Variabilă pentru stocarea datelor temporare
+            List<byte> signalValueInBytes = new List<byte>(); // List for storing received data
+            int bufData = 0; // Variable for temporary data storage
 
             try
             {
-                while (client.Connected && stream.DataAvailable) // Cât timp clientul este conectat și există date disponibile
+                while (client.Connected && stream.DataAvailable) // While client is connected and data is available
                 {
-                    bufData = stream.ReadByte(); // Citim un byte de la client
-                    if (bufData == -1) break; // Dacă nu mai sunt date, ieșim din buclă
-                    signalValueInBytes.Add((byte)bufData); // Adăugăm byte-ul în listă
+                    bufData = stream.ReadByte(); // Reads one byte from client
+                    if (bufData == -1) break; // If no more data, exit loop
+                    signalValueInBytes.Add((byte)bufData); // Adds byte to list
                 }
 
-                Console.WriteLine($"Raw Data Received: {BitConverter.ToString(signalValueInBytes.ToArray())}"); // Afișăm datele brute primite
+                Console.WriteLine($"Raw Data Received: {BitConverter.ToString(signalValueInBytes.ToArray())}"); // Displays raw received data
 
-                ASCIIEncoding encoding = new ASCIIEncoding(); // Obiect pentru codificare ASCII
-                string receivedText = encoding.GetString(signalValueInBytes.ToArray()); // Convertim datele brute în text
+                ASCIIEncoding encoding = new ASCIIEncoding(); // ASCII encoding object
+                string receivedText = encoding.GetString(signalValueInBytes.ToArray()); // Converts raw data to text
 
-                Console.WriteLine($"Unpacked Text: {receivedText}"); // Afișăm textul decodificat
+                Console.WriteLine($"Unpacked Text: {receivedText}"); // Displays decoded text
 
-                UnpackSignalAndRaiseTheEvent(receivedText); // Decodificăm textul și declanșăm evenimentul
+                UnpackSignalAndRaiseTheEvent(receivedText); // Decodes text and raises event
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}"); // Afișăm mesajul de eroare
-                throw new Exception("TCP server error on receiving data from the client ->", ex); // Aruncăm o excepție
+                Console.WriteLine($"Error: {ex.Message}"); // Displays error message
+                throw new Exception("TCP server error on receiving data from the client ->", ex); // Throws an exception
             }
         }
 
-        // Metodă pentru decodificarea semnalului și declanșarea evenimentului
+        // Method for unpacking signal and raising event
         private void UnpackSignalAndRaiseTheEvent(string packedSignalValues)
         {
-            string strTimeStamp = string.Empty; // Variabilă pentru timestamp
-            string StrSignalValue = string.Empty; // Variabilă pentru valoarea semnalului
-            string strPatientCode = string.Empty; // Variabilă pentru codul pacientului
-            string signalName = string.Empty; // Variabilă pentru numele semnalului
+            string strTimeStamp = string.Empty; // Variable for timestamp
+            string StrSignalValue = string.Empty; // Variable for signal value
+            string strPatientCode = string.Empty; // Variable for patient code
+            string signalName = string.Empty; // Variable for signal name
 
-            string[] ValuesList = packedSignalValues.Split('#'); // Împărțim semnalele primite după delimitatorul '#'
-            foreach (string packedSignalValue in ValuesList) // Parcurgem fiecare semnal
+            string[] ValuesList = packedSignalValues.Split('#'); // Splits received signals by delimiter '#'
+            foreach (string packedSignalValue in ValuesList) // Iterates each signal
             {
-                if (packedSignalValue.Length > 0) // Dacă semnalul nu este gol
+                if (packedSignalValue.Length > 0) // If signal is not empty
                 {
-                    string[] valueFields = packedSignalValue.Split(','); // Împărțim semnalul în câmpuri
-                    signalName = valueFields[0]; // Obținem numele semnalului
-                    SensorType sensorType = (SensorType)Enum.Parse(typeof(SensorType), signalName); // Convertim numele în tip de senzor
-                    strTimeStamp = valueFields[1]; // Obținem timestamp-ul
+                    string[] valueFields = packedSignalValue.Split(','); // Splits signal into fields
+                    signalName = valueFields[0]; // Gets signal name
+                    SensorType sensorType = (SensorType)Enum.Parse(typeof(SensorType), signalName); // Converts name to sensor type
+                    strTimeStamp = valueFields[1]; // Gets timestamp
                     DateTime timeStamp;
-                    DateTime.TryParse(strTimeStamp, out timeStamp); // Convertim timestamp-ul în DateTime
-                    strPatientCode = valueFields[2]; // Obținem codul pacientului
-                    StrSignalValue = valueFields[3]; // Obținem valoarea semnalului
+                    DateTime.TryParse(strTimeStamp, out timeStamp); // Converts timestamp to DateTime
+                    strPatientCode = valueFields[2]; // Gets patient code
+                    StrSignalValue = valueFields[3]; // Gets signal value
 
-                    string[] dataValuesList = valueFields[3].Split(';'); // Împărțim valorile semnalului
-                    List<double> dataValueList = new List<double>(); // Listă pentru valorile semnalului
+                    string[] dataValuesList = valueFields[3].Split(';'); // Splits signal values
+                    List<double> dataValueList = new List<double>(); // List for signal values
                     try
                     {
-                        foreach (string currDataValue in dataValuesList) // Parcurgem fiecare valoare
+                        foreach (string currDataValue in dataValuesList) // Iterates each value
                         {
-                            string strDataValue = (currDataValue.TrimStart('[')).TrimEnd(']'); // Eliminăm caracterele '[' și ']'
+                            string strDataValue = (currDataValue.TrimStart('[')).TrimEnd(']'); // Removes '[' and ']' characters
                             double doubleValue;
-                            Double.TryParse(strDataValue, out doubleValue); // Convertim valoarea în double
-                            dataValueList.Add(doubleValue); // Adăugăm valoarea în listă
+                            Double.TryParse(strDataValue, out doubleValue); // Converts value to double
+                            dataValueList.Add(doubleValue); // Adds value to list
                         }
 
-                        SendNewDataReceivedEvent(new SensorBase(strPatientCode, sensorType, dataValueList[0], timeStamp)); // Trimitem datele prin eveniment
+                        SendNewDataReceivedEvent(new SensorBase(strPatientCode, sensorType, dataValueList[0], timeStamp)); // Sends data through event
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("Error when unpacking the text received from TCP client ", ex); // Aruncăm o excepție în caz de eroare
+                        throw new Exception("Error when unpacking the text received from TCP client ", ex); // Throws an exception on error
                     }
                 }
             }
         }
 
-        // Metodă pentru declanșarea evenimentului de semnal nou primit
+        // Method for raising new signal received event
         protected void SendNewDataReceivedEvent(SensorBase e)
         {
-            if (this.newSignalReceivedEvent != null) // Verificăm dacă există abonați la eveniment
+            if (this.newSignalReceivedEvent != null) // Checks whether there are event subscribers
             {
-                this.newSignalReceivedEvent(e); // Declanșăm evenimentul
+                this.newSignalReceivedEvent(e); // Raises event
             }
         }
 
         #region properties
-        // Proprietate pentru verificarea stării serverului
+        // Property for checking server state
         public bool IsRunning
         {
-            get { return _isRunning; } // Returnează starea serverului
+            get { return _isRunning; } // Returns server state
         }
         #endregion
 
         #region Constructors
-        // Constructor pentru inițializarea serverului
+        // Constructor for initializing server
         public TCPCommServer()
         {
             try
             {
-                StartTCPServer(); // Pornește serverul
-                _isRunning = true; // Setează flag-ul de execuție
+                StartTCPServer(); // Starts server
+                _isRunning = true; // Sets running flag
             }
             catch (Exception ex)
             {
-                throw new Exception("TCP server error on starting the server ->" + ex.Message); // Aruncă o excepție în caz de eroare
+                throw new Exception("TCP server error on starting the server ->" + ex.Message); // Throws exception on error
             }
         }
         #endregion
